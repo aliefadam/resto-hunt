@@ -1,0 +1,203 @@
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+  // Navbar
+  nav {
+    padding: 0 30px;
+
+    .brand a {
+      font-size: 23px;
+    }
+
+    .menu {
+      @include flex-container($direction: row, $gap: 20px);
+      width: auto;
+      height: fit-content;
+      position: unset;
+      padding: 0;
+      background-color: transparent;
+      transform: translateX(0) !important;
+
+      a {
+        @include flex-container($align-items: center, $gap: 7px);
+        font-weight: 500;
+        transition: 200ms;
+        height: 45px;
+
+        &:hover {
+          transform: translateY(-1px);
+          color: lighten($quarternary, 5%);
+        }
+      }
+    }
+
+    .hamburger-menu {
+      display: none;
+    }
+  }
+  // End Navbar
+
+  // Hero Section
+  header {
+    img {
+      height: 500px !important;
+    }
+
+    .hero-content {
+      width: 100%;
+      height: 100%;
+
+      h1 {
+        font-size: 40px !important;
+      }
+
+      p {
+        text-align: center;
+        font-size: 18px !important;
+        line-height: 20px !important;
+      }
+    }
+  }
+  // End Hero Section
+
+  // Content
+  main#main-content {
+    h2 {
+      font-size: 25px;
+    }
+
+    .search-input {
+      margin-top: 20px;
+      width: 60%;
+      display: flex;
+      justify-content: center;
+    }
+
+    #menu-container {
+      width: 95%;
+      min-height: calc(100vh - 800px);
+      @include grid-container($column-count: 2, $gap: 30px);
+
+      // Not Found
+      .not-found {
+        grid-column: span 3 / span 3;
+        @include flex-container(
+          $direction: column,
+          $align-items: center,
+          $gap: 30px
+        );
+
+        img {
+          width: 150px;
+        }
+
+        p {
+          font-size: 20px;
+        }
+      }
+      // End Not Found
+    }
+  }
+  // End Content
+
+  // Content Detail
+  main#main-content-detail {
+    padding: 30px;
+
+    .bread-crumb {
+      margin-bottom: 5px;
+    }
+
+    #main-detail {
+      margin-top: 30px;
+
+      .main-detail-image {
+        img {
+          width: 60%;
+        }
+      }
+    }
+
+    .extras {
+      @include flex-container($gap: 30px, $direction: row);
+    }
+
+    // Main Detail Loading
+    #main-detail-loading {
+      margin-top: 30px;
+
+      .main-detail-image-loading {
+        width: 65%;
+        padding-block: 150px;
+      }
+    }
+    // End Main Detail Loading
+  }
+  // End Content Detail
+
+  // Add Review
+  #overlay-add-review {
+    .box-add-review {
+      width: 70%;
+      background-color: $quarternary;
+
+      &-header {
+        padding: 15px 30px;
+      }
+
+      &-body {
+        padding: 25px 30px;
+
+        form {
+          .form-action {
+            button {
+              width: 15%;
+            }
+          }
+        }
+      }
+    }
+  }
+  // End Add Review
+
+  // Main Content Favorite
+  main#main-content-favorite {
+    padding: 30px;
+
+    .bread-crumb {
+      margin-bottom: 5px;
+    }
+
+    #main-favorite {
+      margin-top: 40px;
+
+      h1 {
+        font-size: 35px;
+      }
+
+      &-list {
+        width: 95%;
+        min-height: calc(100vh - 300px);
+        @include grid-container($column-count: 2, $gap: 30px);
+      }
+
+      // Empty Favorite Restaurant
+      .empty-favorite-restaurant {
+        grid-column: span 3 / span 3;
+        @include flex-container(
+          $direction: column,
+          $align-items: center,
+          $gap: 30px
+        );
+
+        img {
+          width: 150px;
+        }
+
+        p {
+          font-size: 20px;
+        }
+      }
+      // End Empty Favorite Restaurant
+    }
+  }
+  // End Main Content Favorite
+}
