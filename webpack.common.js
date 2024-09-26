@@ -4,7 +4,12 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
 const ImageminMozjpeg = require("imagemin-mozjpeg");
+const Webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+require("dotenv").config({
+  path: path.resolve(".env"),
+});
 
 module.exports = {
   entry: {
@@ -34,6 +39,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new Webpack.DefinePlugin({
+      "process.env": JSON.stringify(process.env),
+    }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, "dist/*")],
     }),
