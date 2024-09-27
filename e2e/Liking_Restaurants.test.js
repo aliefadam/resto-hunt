@@ -8,11 +8,17 @@ Before(({ I }) => {
 
 Scenario("showing empty liked restaurants", ({ I }) => {
   I.seeElement("#query");
-  I.see("Restoran tidak ditemukan", ".restaurant-item__not__found");
+  I.see(
+    "Tidak ada restoran favorit yang ditampilkan",
+    ".restaurant-item__not__found"
+  );
 });
 
 Scenario("liking one restaurant", async ({ I }) => {
-  I.see("Restoran tidak ditemukan", ".restaurant-item__not__found");
+  I.see(
+    "Tidak ada restoran favorit yang ditampilkan",
+    ".restaurant-item__not__found"
+  );
   I.amOnPage("/");
   I.seeElement(".btn-lihat-detail");
 
@@ -32,7 +38,10 @@ Scenario("liking one restaurant", async ({ I }) => {
   assert(firstRestaurantName, likedRestaurantName);
 });
 Scenario("searching restaurants", async ({ I }) => {
-  I.see("Restoran tidak ditemukan", ".restaurant-item__not__found");
+  I.see(
+    "Tidak ada restoran favorit yang ditampilkan",
+    ".restaurant-item__not__found"
+  );
   I.amOnPage("/");
 
   I.waitForElement(".btn-lihat-detail", 3);
@@ -63,7 +72,7 @@ Scenario("searching restaurants", async ({ I }) => {
 
   assert.strictEqual(names.length, visibleLikedRestaurants);
 
-  const searchQuery = "e";
+  const searchQuery = "afe";
   I.fillField("#query", searchQuery);
   I.pressKey("Enter");
 

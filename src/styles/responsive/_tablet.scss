@@ -173,10 +173,25 @@
         font-size: 35px;
       }
 
+      .search-input {
+        margin: 20px auto 0 auto;
+        width: 60%;
+        display: flex;
+        justify-content: center;
+      }
+
       &-list {
         width: 95%;
         min-height: calc(100vh - 300px);
         @include grid-container($column-count: 2, $gap: 30px);
+
+        // Empty Favorite Restaurant
+        .restaurant-item__not__found {
+          font-size: 20px;
+          grid-column: span 3 / span 3 !important;
+          grid-column: span 3 / span 3 !important;
+        }
+        // End Empty Favorite Restaurant
       }
 
       // Empty Favorite Restaurant

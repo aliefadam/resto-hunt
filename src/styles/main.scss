@@ -998,6 +998,38 @@ main#main-content-favorite {
       text-align: center;
     }
 
+    .search-input {
+      position: relative;
+      width: 85%;
+      margin: 15px auto 0 auto;
+
+      input {
+        width: 100%;
+        height: 45px;
+        border-radius: 12px;
+        border: 2px solid $primary;
+        background-color: $primary;
+        padding-inline: 40px;
+        color: $quarternary;
+
+        &:focus {
+          outline: white;
+        }
+
+        &::placeholder {
+          color: $quarternary;
+        }
+      }
+
+      i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 15px;
+        color: $quarternary;
+      }
+    }
+
     &-list {
       width: 90%;
       margin: 0 auto;
@@ -1090,7 +1122,6 @@ main#main-content-favorite {
 
       // Loading Indicator
       .menu-item-loading {
-        // background-color: rgb(229 231 235);
         background-color: lighten($secondary, 10%);
         padding: 20px;
         border-radius: 15px;
@@ -1117,7 +1148,6 @@ main#main-content-favorite {
 
           .label-city-loading {
             color: transparent !important;
-            // background-color: rgb(156 163 175);
             background-color: lighten($quarternary, 5);
             @include flex-container($align-items: center, $gap: 5px);
             @include not-static-position(
@@ -1142,7 +1172,6 @@ main#main-content-favorite {
         p:first-child {
           width: fit-content;
           padding-block: 5px;
-          // background-color: rgb(209 213 219);
           background-color: $secondary;
           color: transparent;
           @include flex-container($align-items: center, $gap: 5px);
@@ -1155,7 +1184,6 @@ main#main-content-favorite {
         h3 {
           width: 50%;
           margin-top: 15px;
-          // background-color: rgb(209 213 219);
           background-color: $secondary;
           color: transparent;
           padding-block: 3px;
@@ -1165,7 +1193,6 @@ main#main-content-favorite {
           margin-top: 10px;
           line-height: 20px;
           font-size: 15px;
-          // background-color: rgb(209 213 219);
           background-color: $secondary;
           color: transparent;
           padding-block: 3px;
@@ -1181,13 +1208,21 @@ main#main-content-favorite {
           border-radius: 5px;
           border: none;
           cursor: pointer;
-          // background-color: rgb(156 163 175);
           background-color: darken($secondary, 10%);
           color: transparent;
           transition: 200ms;
         }
       }
       // End Loading Indicator
+
+      // Empty Favorite Restaurant
+      .restaurant-item__not__found {
+        text-align: center;
+        font-size: 15px;
+        font-weight: medium;
+        line-height: 20px;
+      }
+      // End Empty Favorite Restaurant
     }
 
     // Empty Favorite Restaurant
