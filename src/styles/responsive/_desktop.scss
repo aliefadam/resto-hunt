@@ -232,10 +232,25 @@
         font-size: 35px;
       }
 
+      .search-input {
+        margin: 20px auto 0 auto;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+      }
+
       &-list {
         width: 80%;
         margin-top: 40px;
         @include grid-container($column-count: 3, $gap: 30px);
+
+        // Empty Favorite Restaurant
+        .restaurant-item__not__found {
+          font-size: 20px;
+          grid-column: span 3 / span 3 !important;
+          grid-column: span 3 / span 3 !important;
+        }
+        // End Empty Favorite Restaurant
       }
 
       // Empty Favorite Restaurant

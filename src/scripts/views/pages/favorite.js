@@ -19,7 +19,9 @@ const Favorite = {
 
   async afterRender() {
     this._showLoading();
-    this._afterLoading();
+    setTimeout(() => {
+      this._afterLoading();
+    }, 500);
   },
 
   _showLoading() {
@@ -28,32 +30,30 @@ const Favorite = {
   },
 
   _afterLoading() {
-    setTimeout(async () => {
-      document.getElementById("main-favorite-list").innerHTML = "";
-      // const restaurants = await FavoritRestaurantIDB.getAllRestaurant();
-      // if (restaurants.length === 0) {
-      //   document.getElementById("main-favorite-list").innerHTML =
-      //     createEmptyFavoriteRestaurantTemplate();
-      // } else {
-      //   new FavoriteRestaurantShowPresenter({
-      //     view,
-      //     favoriteRestaurants: FavoritRestaurantIDB,
-      //   });
-      //   new FavoriteRestaurantSearchPresenter({
-      //     view,
-      //     favoriteRestaurants: FavoritRestaurantIDB,
-      //   });
-      // }
+    document.getElementById("main-favorite-list").innerHTML = "";
+    // const restaurants = await FavoritRestaurantIDB.getAllRestaurant();
+    // if (restaurants.length === 0) {
+    //   document.getElementById("main-favorite-list").innerHTML =
+    //     createEmptyFavoriteRestaurantTemplate();
+    // } else {
+    //   new FavoriteRestaurantShowPresenter({
+    //     view,
+    //     favoriteRestaurants: FavoritRestaurantIDB,
+    //   });
+    //   new FavoriteRestaurantSearchPresenter({
+    //     view,
+    //     favoriteRestaurants: FavoritRestaurantIDB,
+    //   });
+    // }
 
-      new FavoriteRestaurantShowPresenter({
-        view,
-        favoriteRestaurants: FavoritRestaurantIDB,
-      });
-      new FavoriteRestaurantSearchPresenter({
-        view,
-        favoriteRestaurants: FavoritRestaurantIDB,
-      });
-    }, 500);
+    new FavoriteRestaurantShowPresenter({
+      view,
+      favoriteRestaurants: FavoritRestaurantIDB,
+    });
+    new FavoriteRestaurantSearchPresenter({
+      view,
+      favoriteRestaurants: FavoritRestaurantIDB,
+    });
   },
 };
 

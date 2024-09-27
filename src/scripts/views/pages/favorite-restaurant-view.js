@@ -10,7 +10,10 @@ class FavoriteRestaurantView {
       ${createBreadCrum()}
       <section id="main-favorite">
         <h1>Restoran Favorit</h1>
-        <input id="query" type="text">
+        <div class="search-input">
+          <i class="fa-regular fa-magnifying-glass"></i>
+          <input id="query" type="text">
+        </div>
         <div id="main-favorite-list"></div>
       </section>
     </main>;
@@ -43,7 +46,7 @@ class FavoriteRestaurantView {
   _getEmptyRestaurantTemplate() {
     return `
     <div class="restaurant-item__not__found">
-      Restoran tidak ditemukan
+      Tidak ada restoran favorit yang ditampilkan
     </div>
     `;
   }
