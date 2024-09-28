@@ -13,8 +13,8 @@ exports.config = {
   helpers: {
     Playwright: {
       browser: "chromium",
-      url: "http://localhost:8080",
-      // url: 'http://localhost:9000',
+      // url: "http://localhost:8080", // ini saya gunakan untuk perintah npm run start-dev
+      url: "http://localhost:9000", // ini saya gunakan untuk perintah npm run serve
       show: true,
     },
   },
