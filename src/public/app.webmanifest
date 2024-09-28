@@ -1,8 +1,8 @@
 {
-  "id": "katalog-restoran-pwa",
+  "id": "resto-hunt",
   "start_url": "./index.html",
-  "name": "Katalog Restoran PWA",
-  "short_name": "Katalog Restoran",
+  "name": "Resto Hunt",
+  "short_name": "Resto Hunt",
   "description": "Katalog Restoran Gratis Untuk Semua",
   "display": "standalone",
   "background_color": "#1e201e",
