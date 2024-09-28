@@ -5,6 +5,8 @@ const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
 const ImageminMozjpeg = require("imagemin-mozjpeg");
 const Webpack = require("webpack");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 require("dotenv").config({
@@ -54,6 +56,9 @@ module.exports = {
         {
           from: path.resolve(__dirname, "src/public/"),
           to: path.resolve(__dirname, "dist/"),
+          globOptions: {
+            ignore: ["**/images/heros/**"],
+          },
         },
       ],
     }),
@@ -78,6 +83,12 @@ module.exports = {
           progressive: true,
         }),
       ],
+    }),
+
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static",
+      openAnalyzer: false,
+      reportFilename: "report.html",
     }),
   ],
 };

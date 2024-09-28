@@ -3,12 +3,10 @@ import CONFIG from "../../global/config";
 const createHeroSection = () => {
   return `
     <header>
-        <img
-        class="lazyload"
-        data-src="./images/heros/hero-image_2.jpg"
-        alt="Gambar Jumbotron"
-        id="hero-section"
-        />
+        <picture>
+          <source media="(max-width: 600px)" srcset="./images/heros/hero-image_2-small.jpg">
+          <img src="./images/heros/hero-image_2-large.jpg" alt="Gambar Jumbotron">
+        </picture>
         <div class="hero-content">
         <h1 tabindex="0">Selamat Datang di RestoHunt</h1>
         <p tabindex="0">
@@ -158,7 +156,7 @@ const createRestauranLoadingIndicatorTemplate = () => {
         <div class="menu-detail-loading">
           <p>Rating 4.5 <i class="fa-solid fa-star"></i></p>
           <h3>Kafe Kita</h3>
-          <p class="poppins-light desc-loading">Lorem ipsum dolor sit amet consectetur adipisicing elitLorem ipsum dolor sit amet consectetur adipisicing elit</p>
+          <p class="poppins-light desc-loading">Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ul...</p>
           <a href="#" class="btn-lihat-detail-loading">Lihat Detail</a>
         </div>
     </div>
@@ -256,44 +254,6 @@ const createRestaurantNotFoundTemplate = () => {
   `;
 };
 
-const createEmptyFavoriteRestaurantTemplate = () => {
-  return `
-  <div class="empty-favorite-restaurant">
-    <img src="./images/sad-heart.png">
-    <p>Belum ada restoran yang ditambahkan ke favorit</p>
-  </div>
-  `;
-};
-
-const createRestaurantFavoriteTemplate = (restaurant) => {
-  return `
-    <div class="menu-item" data-restauran-id="${restaurant.id}">
-        <div class="menu-image">
-        <img
-            class="lazyload"
-            data-src="${CONFIG.BASE_IMAGE_URL(restaurant.pictureId)}"
-            alt="Gambar Restoran ${restaurant.name}"
-        />
-        <div class="label-city poppins-medium"><i class="fa-sharp fa-solid fa-location-dot"></i>${
-          restaurant.city
-        }</div>
-        </div>
-        <div class="menu-detail">
-        <p>Rating ${restaurant.rating} <i class="fa-solid fa-star"></i></p>
-        <h3>${restaurant.name}</h3>
-        <p class="poppins-light desc">${restaurant.description
-          .toString()
-          .substring(0, 90)}...</p>
-        <a href="#/detail/${
-          restaurant.id
-        }" class="btn-lihat-detail" data-restaurant-id="${
-    restaurant.id
-  }">Lihat Detail</a>
-        </div>
-    </div>
-  `;
-};
-
 const createAddReviewTemplate = () => {
   return `
   <div id="overlay-add-review">
@@ -315,7 +275,7 @@ const createAddReviewTemplate = () => {
             <textarea required id="ulasan"></textarea>
           </div>
           <div class="form-action">
-            <button type="submit">Kirim</button>
+            <button type="submit" id="btn-send-review">Kirim</button>
           </div>
         </form>
       </div>
@@ -365,7 +325,5 @@ export {
   createAddReviewTemplate,
   createLikeRestaurantButtonTemplate as createLikeButtonTemplate,
   createUnlikeRestaurantButtonTemplate as createLikedButtonTemplate,
-  createRestaurantFavoriteTemplate,
   createBreadCrum,
-  createEmptyFavoriteRestaurantTemplate,
 };

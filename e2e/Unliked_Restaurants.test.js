@@ -7,6 +7,7 @@ Before(async ({ I }) => {
 });
 
 Scenario("unliked restaurant", async ({ I }) => {
+  // Disini saya mensimulasikan untuk menyukai 2 restoran terlebih dahulu
   I.waitForElement(".btn-lihat-detail", 5);
   I.seeElement(".btn-lihat-detail");
 
