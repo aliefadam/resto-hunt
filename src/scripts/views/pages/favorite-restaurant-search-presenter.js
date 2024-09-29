@@ -1,17 +1,17 @@
 class FavoriteRestaurantSearchPresenter {
-  constructor({ favoriteRestaurants, view }) {
+  constructor ({ favoriteRestaurants, view }) {
     this._favoriteRestaurants = favoriteRestaurants;
     this._view = view;
     this._listenToSearchRequestByUser();
   }
 
-  _listenToSearchRequestByUser() {
+  _listenToSearchRequestByUser () {
     this._view.runWhenUserIsSearching((latestQuery) => {
       this._searchRestaurants(latestQuery);
     });
   }
 
-  async _searchRestaurants(latestQuery) {
+  async _searchRestaurants (latestQuery) {
     this._latestQuery = latestQuery.trim();
     let foundRestaurants;
 
@@ -25,11 +25,11 @@ class FavoriteRestaurantSearchPresenter {
     this._showFoundRestaurants(foundRestaurants);
   }
 
-  _showFoundRestaurants(restaurants) {
+  _showFoundRestaurants (restaurants) {
     this._view.showFavoriteRestaurant(restaurants);
   }
 
-  get latestQuery() {
+  get latestQuery () {
     return this._latestQuery;
   }
 }
