@@ -1,16 +1,16 @@
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 const Notification = {
-  show({ title, text, icon }) {
+  show ({ title, text, icon }) {
     Swal.fire({
       title,
       text,
       icon,
       customClass: {
-        container: "custom-swal-container",
-      },
+        container: 'custom-swal-container'
+      }
     });
-  },
+  }
 };
 
 export default Notification;

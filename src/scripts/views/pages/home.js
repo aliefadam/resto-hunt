@@ -1,13 +1,13 @@
-import RestaurantSource from "../../data/restaurant-source";
+import RestaurantSource from '../../data/restaurant-source';
 import {
   createHeroSection,
   createRestauranLoadingIndicatorTemplate,
   createRestaurantItemTemplate,
-  createRestaurantNotFoundTemplate,
-} from "../templates/template-creator";
+  createRestaurantNotFoundTemplate
+} from '../templates/template-creator';
 
 const Home = {
-  async render() {
+  async render () {
     return `
     ${createHeroSection()}
     <main id="main-content">
@@ -21,14 +21,14 @@ const Home = {
     `;
   },
 
-  async afterRender() {
+  async afterRender () {
     this._show();
 
     document
-      .getElementById("search")
-      .addEventListener("input", ({ target }) => {
+      .getElementById('search')
+      .addEventListener('input', ({ target }) => {
         const query = target.value;
-        if (query === "") {
+        if (query === '') {
           this._show();
         } else {
           this._show(query);
@@ -36,30 +36,30 @@ const Home = {
       });
   },
 
-  async _show(query = "") {
-    document.getElementById("menu-container").innerHTML =
+  async _show (query = '') {
+    document.getElementById('menu-container').innerHTML =
       createRestauranLoadingIndicatorTemplate();
 
     setTimeout(async () => {
       const restaurantsResults =
-        query === ""
+        query === ''
           ? RestaurantSource.restaurant_list()
           : RestaurantSource.search_restaurant(query);
 
       await restaurantsResults.then((restaurants) => {
-        document.getElementById("menu-container").innerHTML = "";
+        document.getElementById('menu-container').innerHTML = '';
         if (restaurants.length !== 0) {
           restaurants.forEach((restaurant) => {
-            document.getElementById("menu-container").innerHTML +=
+            document.getElementById('menu-container').innerHTML +=
               createRestaurantItemTemplate(restaurant);
           });
         } else {
-          document.getElementById("menu-container").innerHTML =
+          document.getElementById('menu-container').innerHTML =
             createRestaurantNotFoundTemplate();
         }
       });
     }, 500);
-  },
+  }
 };
 
 export default Home;

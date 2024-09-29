@@ -1,4 +1,4 @@
-import CONFIG from "../../global/config";
+import CONFIG from '../../global/config';
 
 const createHeroSection = () => {
   return `
@@ -25,7 +25,7 @@ const createRestaurantItemTemplate = (restaurant) => {
         <img
             class="lazyload"
             data-src="${CONFIG.BASE_IMAGE_URL(restaurant.pictureId)}"
-            alt="Gambar Restoran ${restaurant.name || "-"}"
+            alt="Gambar Restoran ${restaurant.name || '-'}"
         />
         <div class="label-city poppins-medium"><i class="fa-sharp fa-solid fa-location-dot"></i>${
           restaurant.city
@@ -33,11 +33,11 @@ const createRestaurantItemTemplate = (restaurant) => {
         </div>
         <div class="menu-detail">
         <p>Rating ${restaurant.rating} <i class="fa-solid fa-star"></i></p>
-        <h3 class="restaurant__name">${restaurant.name || "-"}</h3>
+        <h3 class="restaurant__name">${restaurant.name || '-'}</h3>
         <p class="poppins-light desc">${
           restaurant.description
-            ? restaurant.description.toString().substring(0, 90) + "..."
-            : "-"
+            ? restaurant.description.toString().substring(0, 90) + '...'
+            : '-'
         }</p>
         <a href="#/detail/${
           restaurant.id
@@ -75,7 +75,7 @@ const createRestaurantDetailTemplate = (restaurant) => {
           .map((category, i) => {
             return `<span>${category.name}</span>`;
           })
-          .join("")}
+          .join('')}
       </div>
       <div class="location">
         <i class="fa-regular fa-location-dot"></i>
@@ -103,7 +103,7 @@ const createRestaurantDetailTemplate = (restaurant) => {
               .map(({ name }) => {
                 return `<span>${name}</span>`;
               })
-              .join("")}
+              .join('')}
           </div>
           <h4>Minuman :</h4>
           <div class="menu-body-list">
@@ -111,7 +111,7 @@ const createRestaurantDetailTemplate = (restaurant) => {
               .map(({ name }) => {
                 return `<span>${name}</span>`;
               })
-              .join("")}
+              .join('')}
           </div>
       </div>
     </div>
@@ -137,7 +137,7 @@ const createRestaurantDetailTemplate = (restaurant) => {
               </div>
               `;
           })
-          .join("")}
+          .join('')}
       </div>
     </div>
   </div>
@@ -145,7 +145,7 @@ const createRestaurantDetailTemplate = (restaurant) => {
 };
 
 const createRestauranLoadingIndicatorTemplate = () => {
-  let HTML = "";
+  let HTML = '';
   for (let i = 0; i < 6; i++) {
     HTML += `
     <div class="menu-item-loading">
@@ -325,5 +325,5 @@ export {
   createAddReviewTemplate,
   createLikeRestaurantButtonTemplate as createLikeButtonTemplate,
   createUnlikeRestaurantButtonTemplate as createLikedButtonTemplate,
-  createBreadCrum,
+  createBreadCrum
 };
