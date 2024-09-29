@@ -83,6 +83,13 @@ module.exports = {
             cacheName: "restaurant-api-image",
           },
         },
+        {
+          urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
+          handler: "CacheFirst",
+          options: {
+            cacheName: "static-images",
+          },
+        },
       ],
     }),
 
